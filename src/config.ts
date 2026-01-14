@@ -1,6 +1,6 @@
 export const SITE = {
   website: "https://sdumai.github.io", // replace this with your deployed domain
-  author: "Sat Naing",
+  author: "Sun Shine",
   profile: "https://satnaing.dev/",
   desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
   title: "不蔓不枝",
@@ -14,7 +14,7 @@ export const SITE = {
   editPost: {
     enabled: true,
     text: "Edit page",
-    url: "https://github.com/satnaing/astro-paper/edit/main/",
+    url: "https://github.github.io/sunshine-blog/",
   },
   dynamicOgImage: true,
   dir: "ltr", // "rtl" | "auto"
