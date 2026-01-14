@@ -1,148 +1,33 @@
 ---
-author: Sat Naing
-pubDatetime: 2022-09-25T15:20:35Z
-modDatetime: 2026-01-09T15:00:15.170Z
-title: Customizing AstroPaper theme color schemes
+author: Sun Shine
+pubDatetime: 2025-01-13T23:01:00Z
+modDatetime: 2025-01-13T23:01:00Z
+title: “我是这样死板的山，竟为你哗然”
+slug: 我是这样死板的山，竟为你哗然
 featured: false
 draft: false
 tags:
-  - color-schemes
   - docs
-description:
-  How you can enable/disable light & dark mode; and customize color schemes
-  of AstroPaper theme.
+description: 文字，本就讲究去简从繁，讲究一个风雨急而车马慢；
+  讲究晦涩，讲究难，讲究三字经长短，大有文字浪漫。
+  我是这样死板的山，竟为你哗然。
+  ———— 《君不见，死板的山》
 ---
 
-This post will explain how you can enable/disable light & dark mode for the website. Moreover, you'll learn how you can customize color schemes of the entire website.
+文字，本就讲究去简从繁，讲究一个风雨急而车马慢；  
+讲究晦涩，讲究难，讲究三字经长短，大有文字浪漫。  
+而我是这样死板的山，竟为你哗然。
 
-## Table of contents
+<div class="text-end">————《君不见，死板的山》</div>
 
-## Enable/disable light & dark mode
+---
 
-AstroPaper theme will include light and dark mode by default. In other words, there will be two color schemes\_ one for light mode and another for dark mode. This default behavior can be disabled in `SITE` configuration object.
+文字是时光淬炼的琥珀，藏着千年的月光和烟火。
 
-```js file="src/config.ts"
-export const SITE = {
-  website: "https://astro-paper.pages.dev/", // replace this with your deployed domain
-  author: "Sat Naing",
-  profile: "https://satnaing.dev/",
-  desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
-  title: "AstroPaper",
-  ogImage: "astropaper-og.jpg",
-  lightAndDarkMode: true, // [!code highlight]
-  postPerIndex: 4,
-  postPerPage: 4,
-  scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
-  showArchives: true,
-  showBackButton: true, // show back button in post detail
-  editPost: {
-    enabled: true,
-    text: "Suggest Changes",
-    url: "https://github.com/satnaing/astro-paper/edit/main/",
-  },
-  dynamicOgImage: true,
-  lang: "en", // html lang code. Set this empty and default will be "en"
-  timezone: "Asia/Bangkok", // Default global timezone (IANA format) https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-} as const;
-```
+它摒弃直白的喧嚣，偏爱在繁复的笔触里织就深情；就像旧时光里的车马，即便风雨骤急，也依然遵循着自己的步调，不慌不忙地奔向远方。
 
-To disable `light & dark mode` set `SITE.lightAndDarkMode` to `false`.
+字与字的碰撞、词与词的缠绕，如同山间交错的溪流，看似无序却自由韵律。每一个字都是诗人一落的星辰，用晦涩的轨迹勾勒出难以言说的情愫。那些反复推敲的遣词造句，不是枷锁，而是层层叠叠的锦盒。
 
-## Choose initial color scheme
+我曾是座刻板的山，棱角分明，固守着自己的秩序，任四季更迭、岁月流转，我始终沉默无言。知道你出现，如一阵温柔的风，悄悄漫过我的山巅。那些原本僵硬的文字，突然有了温度；那些尘封的情愫，在字句间肆意生长。我开始在平仄里寻找你的影子，在典故中暗藏对你的眷恋。
 
-By default, if we disable `SITE.lightAndDarkMode`, we will only get system's prefers-color-scheme.
-
-Thus, to choose an initial color scheme instead of prefers-color-scheme, we have to set color scheme in the `initialColorScheme` variable inside `theme.ts`.
-
-```ts file="src/scripts/theme.ts"
-// Initial color scheme
-// Can be "light", "dark", or empty string for system's prefers-color-scheme
-const initialColorScheme = ""; // "light" | "dark" // [!code hl]
-
-function getPreferTheme(): string {
-  // get theme data from local storage (user's explicit choice)
-  const currentTheme = localStorage.getItem("theme");
-  if (currentTheme) return currentTheme;
-
-  // return initial color scheme if it is set (site default)
-  if (initialColorScheme) return initialColorScheme;
-
-  // return user device's prefer color scheme (system fallback)
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-}
-
-// ...
-```
-
-The **initialColorScheme** variable can hold two values\_ `"light"`, `"dark"`. You can leave the empty string (default) if you don't want to specify an initial color scheme.
-
-- `""` - system's prefers-color-scheme. (default)
-- `"light"` - use light mode as initial color scheme.
-- `"dark"` - use dark mode as initial color scheme.
-
-<details>
-<summary>Why initialColorScheme is not inside config.ts?</summary>
-To avoid color flickering on page reload, we have to place the theme initialization JavaScript code as early as possible when the page loads. The theme script is split into two parts: a minimal inline script in the `<head>` that sets the theme immediately, and the full script that loads asynchronously. This approach prevents FOUC (Flash of Unstyled Content) while maintaining optimal performance.
-</details>
-
-## Customize color schemes
-
-Both light & dark color schemes of AstroPaper theme can be customized in the `global.css` file.
-
-```css file="src/styles/global.css"
-@import "tailwindcss";
-@import "./typography.css";
-
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-
-:root,
-html[data-theme="light"] {
-  --background: #fdfdfd;
-  --foreground: #282728;
-  --accent: #006cac;
-  --muted: #e6e6e6;
-  --border: #ece9e9;
-}
-
-html[data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #ff6b01;
-  --muted: #343f60bf;
-  --border: #ab4b08;
-}
-/* ... */
-```
-
-In the AstroPaper theme, the `:root` and `html[data-theme="light"]` selectors define the light color scheme, while `html[data-theme="dark"]` defines the dark color scheme.
-
-To customize your own color scheme, specify your light colors inside `:root, html[data-theme="light"]`, and your dark colors inside `html[data-theme="dark"]`.
-
-Here is the detail explanation of color properties.
-
-| Color Property | Definition & Usage                                            |
-| -------------- | ------------------------------------------------------------- |
-| `--background` | Primary color of the website. Usually the main background.    |
-| `--foreground` | Secondary color of the website. Usually the text color.       |
-| `--accent`     | Accent color of the website. Link color, hover color etc.     |
-| `--muted`      | Card and scrollbar background color for hover state etc.      |
-| `--border`     | Border color. Used for border utilities and visual separation |
-
-Here is an example of changing the light color scheme.
-
-```css file="src/styles/global.css"
-/* ... */
-:root,
-html[data-theme="light"] {
-  --background: #f6eee1;
-  --foreground: #012c56;
-  --accent: #e14a39;
-  --muted: #efd8b0;
-  --border: #dc9891;
-}
-/* ... */
-```
-
-> Check out some [predefined color schemes](https://astro-paper.pages.dev/posts/predefined-color-schemes/) AstroPaper has already crafted for you.
+原来再冰冷的文字，遇见倾心的人，也会化作满天的流萤，在暗夜中哗然绽放，将心底的荒芜，点缀成璀璨星河。这大概就是文字的魔力，于无声处，将心底写成永恒。
