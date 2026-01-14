@@ -2,15 +2,16 @@
 author: Sat Naing
 pubDatetime: 2022-09-25T15:20:35Z
 modDatetime: 2026-01-09T15:00:15.170Z
-title: Customizing AstroPaper theme color schemes
+title: “我是这样死板的山，竟为你哗然”
 featured: false
 draft: false
 tags:
   - color-schemes
   - docs
-description:
-  How you can enable/disable light & dark mode; and customize color schemes
-  of AstroPaper theme.
+description: 文字，本就讲究去简从繁，讲究一个风雨急而车马慢；
+  讲究晦涩，讲究难，讲究三字经长短，大有文字浪漫。
+  我是这样死板的山，竟为你哗然。
+  ———— 《君不见，死板的山》
 ---
 
 文字，本就讲究去简从繁，讲究一个风雨急而车马慢；  
