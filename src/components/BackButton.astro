@@ -12,7 +12,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     <div class="app-layout flex items-center justify-start">
       <LinkButton
         id="back-button"
-        href={baseUrl || "/"}
+        href={baseUrl ? `${baseUrl}/` : "/"}
         class="focus-outline -ms-2 mt-8 mb-2 hover:text-foreground/75"
       >
         <IconChevronLeft class="inline-block size-6 rtl:rotate-180" />

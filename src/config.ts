@@ -6,9 +6,9 @@ export const SITE = {
   title: "不蔓不枝",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
-  postPerIndex: 4,
-  postPerPage: 4,
-  scheduledPostMargin: 0, // 15 minutes
+  postPerIndex: 30,
+  postPerPage: 30,
+  scheduledPostMargin: 0, // 0 minutes
   showArchives: true,
   showBackButton: true, // show back button in post detail
   editPost: {

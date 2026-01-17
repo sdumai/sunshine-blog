@@ -15,8 +15,6 @@ import { SOCIALS } from "@/constants";
 const posts = await getCollection("blog");
 
 const sortedPosts = getSortedPosts(posts);
-const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
 // Get base URL and remove trailing slash
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -27,7 +25,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
   <main id="main-content" data-layout="index" class="app-layout">
     <section id="hero" class:list={["pt-8 pb-6", "border-b border-border"]}>
       <h2 class="my-4 inline-block text-2xl font-bold sm:my-8 sm:text-3xl">
-        Some Memories and Thoughts
+        不蔓不枝的青年笔记
       </h2>
       <a
         target="_blank"
@@ -43,7 +41,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
         <span class="sr-only">RSS Feed</span>
       </a>
 
-      <p>Neither sprawling nor branching.</p>
+      <p>借此记录一些生活和思考.</p>
       {
         // only display if at least one social link is enabled
         SOCIALS.length > 0 && (
@@ -55,38 +53,14 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
       }
     </section>
 
-    {
-      featuredPosts.length > 0 && (
-        <section
-          id="featured"
-          class:list={[
-            "pt-12 pb-6",
-            { "border-b border-border": recentPosts.length > 0 },
-          ]}
-        >
-          <h2 class="text-2xl font-semibold tracking-wide">Live And Thought</h2>
-          <ul>
-            {featuredPosts.map(data => (
-              <Card variant="h3" {...data} />
-            ))}
-          </ul>
-        </section>
-      )
-    }
-
-    {
-      recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-12 pb-6">
-          <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
-          <ul>
-            {recentPosts.map(
-              (data, index) =>
-                index < SITE.postPerIndex && <Card variant="h3" {...data} />
-            )}
-          </ul>
-        </section>
-      )
-    }
+    <section id="all-posts" class="pt-4 pb-6">
+      <ul>
+        {sortedPosts.map(
+          (data, index) =>
+            index < SITE.postPerIndex && <Card variant="h3" {...data} />
+        )}
+      </ul>
+    </section>
 
     <div class="my-8 text-center">
       <LinkButton href={`${baseUrl}/posts/`}>
@@ -104,7 +78,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
       ?.dataset?.layout;
     if (indexLayout) {
       const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
-      sessionStorage.setItem("backUrl", baseUrl || "/");
+      sessionStorage.setItem("backUrl", baseUrl ? `${baseUrl}/` : "/");
     }
   });
 </script>
