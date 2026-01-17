@@ -47,8 +47,16 @@
       @apply mx-auto border border-border;
     }
 
+    figure {
+      @apply my-6 text-center;
+    }
+
+    figure img {
+      @apply mx-auto max-w-full h-auto;
+    }
+
     figcaption {
-      @apply opacity-75;
+      @apply mt-2 text-sm opacity-75 italic;
     }
 
     table {
@@ -115,5 +123,20 @@
     .highlighted-word {
       @apply rounded-sm border border-border px-0.5 py-px;
     }
+  }
+
+  /* ===== KaTeX Math Rendering ===== */
+  /* Support for both inline and display math */
+  .katex {
+    @apply text-foreground;
+  }
+
+  .katex-display {
+    @apply overflow-x-auto overflow-y-hidden;
+  }
+
+  /* Dark mode support for KaTeX */
+  html[data-theme="dark"] .katex {
+    @apply text-foreground;
   }
 }
