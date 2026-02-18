@@ -1,8 +1,8 @@
 ---
 author: Sun Shine
 pubDatetime: 2022-09-25T15:20:35Z
-modDatetime: 2025-01-16T15:00:15.170Z
-title: 【随笔】你走的路要繁华盛开
+modDatetime: 2025-12-0T15:00:15.170Z
+title: 你走的路要繁华盛开
 featured: true
 draft: false
 tags:

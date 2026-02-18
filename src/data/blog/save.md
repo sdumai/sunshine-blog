@@ -1,8 +1,8 @@
 ---
 author: Sun Shine
 pubDatetime: 2022-09-25T15:20:35Z
-modDatetime: 2026-01-01T15:00:15.170Z
-title: 【技术】人工智能安全"
+modDatetime: 2023-01-01T15:00:15.170Z
+title: 人工智能安全
 featured: true
 draft: false
 tags:
@@ -1427,7 +1427,7 @@ PS：黑盒水印（实际上是后门)
      def check_model_safety(model_file):
          # 检查模型文件中是否包含可疑的系统调用
          suspicious_commands = ['os.system', 'subprocess', 'exec', 'eval']
-
+     
          with open(model_file, 'rb') as f:
              content = f.read()
              for cmd in suspicious_commands:
@@ -1443,17 +1443,17 @@ PS：黑盒水印（实际上是后门)
      # 伪代码示例
      import subprocess
      import threading
-
+     
      def monitor_system_calls():
          # 监控系统调用
          # 如果检测到异常的命令执行，立即报警
          pass
-
+     
      def load_model_safely(model_path):
          # 启动监控线程
          monitor_thread = threading.Thread(target=monitor_system_calls)
          monitor_thread.start()
-
+     
          try:
              # 加载模型
              model = load_model(model_path)
@@ -1562,10 +1562,10 @@ PS：黑盒水印（实际上是后门)
      def test_vulkan_memory_isolation():
          # 测试设备本地内存隔离
          device_memory_test()
-
+     
          # 测试共享内存隔离
          shared_memory_test()
-
+     
          # 验证不同程序间是否能互相访问内存
          cross_program_access_test()
      ```
@@ -1651,11 +1651,11 @@ PS：黑盒水印（实际上是后门)
 
      ```
      调用了哪些API？（创建文件、修改注册表、连接网络等）
-
+     
      访问了哪些文件/注册表项？
-
+     
      连接了哪些IP地址/域名？
-
+     
      创建了哪些进程/线程？
      ```
 

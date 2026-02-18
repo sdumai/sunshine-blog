@@ -1,8 +1,8 @@
 ---
 author: Sun Shine
 pubDatetime: 2022-09-25T15:20:35Z
-modDatetime: 2025-11-09T15:00:15.170Z
-title: 【技术】初识智能体
+modDatetime: 2024-11-09T15:00:15.170Z
+title: 初识智能体
 featured: true
 draft: false
 tags:

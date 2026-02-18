@@ -1,8 +1,8 @@
 ---
 author: Sun Shine
 pubDatetime: 2022-09-25T15:20:35Z
-modDatetime: 2025-01-16T15:00:15.170Z
-title: 【随笔】我喜欢我的懦弱，痛苦
+modDatetime: 2026-01-5T15:00:15.170Z
+title: 我喜欢我的懦弱，痛苦
 featured: true
 draft: false
 tags:
